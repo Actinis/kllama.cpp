@@ -10,3 +10,7 @@ local.properties
 xcuserdata
 .kotlin
 *.gpg
+*.so
+*.dll
+*.dylib
+*.log

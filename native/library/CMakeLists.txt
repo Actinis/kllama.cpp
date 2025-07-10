@@ -38,6 +38,36 @@ target_link_libraries(kllama_cpp_native
 )
 
 #
+# JNI Wrapper Library (NEW SECTION)
+#
+find_package(JNI REQUIRED)
+
+if (JNI_FOUND)
+    message(STATUS "JNI found, building JNI wrapper.")
+
+    set(JNI_SOURCES
+            src/jni/kllama_jni.cpp
+    )
+
+    add_library(kllama_cpp_jni SHARED
+            ${JNI_SOURCES}
+    )
+
+    target_include_directories(kllama_cpp_jni PRIVATE
+            ${JNI_INCLUDE_DIRS}
+    )
+
+    add_dependencies(kllama_cpp_jni kllama_cpp_native)
+
+    target_link_libraries(kllama_cpp_jni
+            kllama_cpp_native
+            ${JNI_LIBRARIES}
+    )
+else()
+    message(WARNING "JNI not found, skipping JNI wrapper build.")
+endif()
+
+#
 # Demo
 #
 

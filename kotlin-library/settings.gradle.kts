@@ -17,3 +17,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "kllama-cpp"
 include(":library")
+include(":demo-jvm")

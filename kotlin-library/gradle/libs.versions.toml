@@ -10,9 +10,18 @@ kotlinx-coroutines = "1.10.2"
 kotlinx-serialization = "1.9.0"
 
 kermit = "2.0.6"
+clikt = "5.0.3"
 
 
 [libraries]
+
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+
+
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
+clikt = { module = "com.github.ajalt.clikt:clikt", version.ref = "clikt" }
+
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 
 [plugins]

@@ -44,6 +44,9 @@ exclude_items=(
     "*/desktopMain/*"
     "iosApp/*"
     "*/composeResources/*"
+    "gradlew"
+    "gradlew.bat"
+    "*.log"
 )
 
 # shellcheck disable=SC3054
