@@ -1,0 +1,6 @@
+[submodule "native/external/spdlog"]
+	path = native/external/spdlog
+	url = https://github.com/gabime/spdlog.git
+[submodule "native/external/llama.cpp"]
+	path = native/external/llama.cpp
+	url = https://github.com/ggml-org/llama.cpp.git

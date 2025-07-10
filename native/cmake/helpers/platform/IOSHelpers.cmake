@@ -1,0 +1,12 @@
+string(FIND "${CMAKE_OSX_SYSROOT}" "iPhoneSimulator" SIMULATOR_FOUND)
+if (SIMULATOR_FOUND GREATER -1)
+    message(STATUS "Building for iOS Simulator")
+    set(IS_IOS_SIMULATOR TRUE)
+else ()
+    message(STATUS "Building for iOS Device")
+    set(IS_IOS_SIMULATOR FALSE)
+endif ()
+
+if(IOS)
+    add_definitions(-DACTINIS_SKIA_DARWIN=1)
+endif()
