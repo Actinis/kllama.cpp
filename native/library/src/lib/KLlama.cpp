@@ -516,8 +516,7 @@ KLlamaResult<std::string> KLlama::generateResponseInternal(
     const ProgressCallback &progressCallback,
     CancellationToken *cancellationToken
 ) {
-    auto initCheck = checkInitialized();
-    if (initCheck.isError()) {
+    if (auto initCheck = checkInitialized(); initCheck.isError()) {
         return KLlamaResult<std::string>(initCheck.error, initCheck.errorMessage);
     }
 
@@ -553,6 +552,7 @@ KLlamaResult<std::string> KLlama::generateResponseInternal(
     // Initialize generation state
     setGenerationState(GenerationState::Initializing);
     currentStats = {};
+    currentStats.sampling = samplingParams;
     generationStartTime = std::chrono::high_resolution_clock::now();
 
     // Reset context

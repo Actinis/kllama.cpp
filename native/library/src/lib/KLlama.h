@@ -110,14 +110,6 @@ enum class GenerationState {
     Error
 };
 
-// Generation statistics
-struct GenerationStats {
-    int32_t tokensGenerated;
-    int32_t tokensPerSecond;
-    float timeElapsed;
-    GenerationState state;
-};
-
 struct ImageData {
     std::vector<uint8_t> data;
 };
@@ -149,6 +141,15 @@ struct SamplingParams {
 
     // Validation
     [[nodiscard]] KLlamaResult<void> validate() const;
+};
+
+// Generation statistics
+struct GenerationStats {
+    int32_t tokensGenerated{};
+    int32_t tokensPerSecond{};
+    float timeElapsed{};
+    GenerationState state;
+    SamplingParams sampling;
 };
 
 struct SessionParams {
