@@ -1,0 +1,23 @@
+[versions]
+agp = "8.9.3"
+kotlin = "2.2.0"
+gradle-versions = "0.52.0"
+
+android-minSdk = "28"
+android-compileSdk = "36"
+
+kotlinx-coroutines = "1.10.2"
+kotlinx-serialization = "1.9.0"
+
+kermit = "2.0.6"
+
+
+[libraries]
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+
+[plugins]
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version = "0.29.0" }
+gradle-versions = { id = "com.github.ben-manes.versions", version.ref = "gradle-versions" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

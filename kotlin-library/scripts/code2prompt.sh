@@ -1,0 +1,52 @@
+#!/bin/sh
+
+# shellcheck disable=SC3030
+exclude_items=(
+    "*build*"
+    "*.git*"
+    "*.idea*"
+    "*.vscode*"
+    "README.md"
+    "LICENSE.txt"
+    "VERSION"
+    "*.xml"
+    "*.png"
+    "*.jpg"
+    "*.css"
+    "*.properties"
+    "*.bat"
+    "*.sh"
+    "scripts/*"
+    ".kotlin/*"
+    "*/androidTest/*"
+    "*.pro"
+    "*.jar"
+    "*.webp"
+    "*.so"
+    "*.toml"
+    "*.kts"
+    "*.json"
+    "*.klib"
+    "*.def"
+    "*.h"
+    "AndroidKtorLogger.kt"
+    "Stop.kt"
+    "*/di/*"
+    "*/res/*"
+    "*/test/*"
+    "*/jniLibs/*"
+    "*/stats/*"
+    "*/telemetry/*"
+    "*/schemas/*"
+    "*/iosMain/*"
+    "*/iosSimulatorArm64Main/*"
+    "*/iosArm64Main/*"
+    "*/desktopMain/*"
+    "iosApp/*"
+    "*/composeResources/*"
+)
+
+# shellcheck disable=SC3054
+exclude_string=$(IFS=,; echo "${exclude_items[*]}")
+
+code2prompt "$1" --exclude "$exclude_string" --tokens format --no-clipboard --no-ignore --output-file "$2"
